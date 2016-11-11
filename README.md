@@ -9,9 +9,9 @@ This toolkit provides building blocks for the development of simulated driving s
 
 ![alt text](https://cloud.githubusercontent.com/assets/3961167/19617456/c3bfd938-97e5-11e6-9c77-93d2f8955c61.gif)
 
-Creating realistic vehicle simulation environments fundamentally requires many different dynamic objects that interact with each other. Common dynamic objects include environmental signals, adjacent vehicles, and pedestrians. The Unity Vehicle Simulation Environment provides the scripts needed to create realistic driving scenarios using Unity3D. It includes dynamic objects, such as cars and pedestrians, and road generation scripts.
+Creating realistic vehicle simulation environments fundamentally requires many different dynamic objects that interact with each other. Common dynamic objects include environmental signals, adjacent vehicles, and pedestrians. The Unity Vehicle Simulation Environment provides the scripts needed to create realistic driving scenarios using Unity. It includes dynamic objects and road generation scripts.
 
-Note: This package includes scripts which may be dependent on additional external libraries. The Unity Standard Assets are included in the project but additional assets may be required. The dependent scripts are kept in the same folder and commented out.
+Note: This package includes scripts which are dependent on additional external libraries. The Unity Standard Assets is not included in the project. Please import them from the Unity Assets Store to fix dependencies.
 
 ## Driving Scenario Vehicle Visualization Tool
 
@@ -27,9 +27,9 @@ This tool provides a means to visualize driving scenarios with from simulated or
 
 This section provides details for the vehicle visualization API and explains how to provide data to the system in the appropriate format. All files are in JSON format and must contain the appropriate fields for the system. Files are placed in separate folders depending on the vehicle described. Check out the "Scenario Example" folder for a template.
 
-### Vehicles
+### Dynamic Agents (Vehicles and Pedestrians)
 
-Vehicles use high quality detailed 3D models. Each vehicle in the scene must be described with a unique JSON file located in the folder. The format is the following
+Agents use high quality detailed 3D models. Each agent in the scene must be described with a unique JSON file located in the folder. Vehicles must be placed in the vehicle folder and pedestrians must be placed in the pedestrian folder. The format is the following:
 
 {
 	"time": Array.of(float),
@@ -51,6 +51,10 @@ Environment can contain a variety of features: Roads, signs, buildings. Roads ca
 	"z": Array.of(float),
 	"LaneWidth": float
 }
+
+## Coordinate System
+
+The vehicle visualization tool uses Unity's left handed coordinate system. All units are in meters and angles are in degrees.
 
 ## Interacting with the Scene
 
